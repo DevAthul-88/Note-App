@@ -1,10 +1,10 @@
 import {Link} from '@reach/router'
 import {useState} from 'react'
 
-function Login() {
+function Register() {
 
     const [user , setUser] = useState({
-        name:'',
+
         email:'',
         password:'',
     })
@@ -28,7 +28,6 @@ function Login() {
     return (
         <div className="section">
 
-            
           {
               error !== null ? (
                <div>
@@ -44,10 +43,9 @@ function Login() {
           }
 
 
-            <h1 className="title is-size-1 has-text-weight-bold has-text-centered">Login</h1>
+            <h1 className="title is-size-1 has-text-weight-bold has-text-centered">Register</h1>
        
-         <label htmlFor="" className="label">User Name</label>
-         <input type="text"  className="input" name='name' value={user.name} onChange={onChange} required />
+         
 
          <label htmlFor="" className="label mt-4">Email Address</label>
          <input type="email"  className="input" name='email' value={user.email} onChange={onChange}  required/>
@@ -57,7 +55,6 @@ function Login() {
 
           
           
-      
 
          <button className='mt-4 button is-primary'>
              <strong>Submit</strong>
@@ -67,4 +64,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Register
