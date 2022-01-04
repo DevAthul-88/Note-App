@@ -1,10 +1,11 @@
 import {Link} from '@reach/router'
 import {useState} from 'react'
+import axios from 'axios'
 
-function Login() {
+function Login({setIsLogged}) {
 
     const [user , setUser] = useState({
-        name:'',
+    
         email:'',
         password:'',
     })
@@ -22,6 +23,18 @@ function Login() {
             }
         })
 
+    }
+
+   async function onSubmit(){
+        try {
+            const res = await axios.post('/user/login' , user)
+            
+
+            localStorage.setItem('tokenStore'  , res.data.token)
+            setIsLogged(true)
+        } catch (error) {
+            error.response.data.error && setError(error.response.data.error)
+        }
     }
 
 
@@ -46,9 +59,7 @@ function Login() {
 
             <h1 className="title is-size-1 has-text-weight-bold has-text-centered">Login</h1>
        
-         <label htmlFor="" className="label">User Name</label>
-         <input type="text"  className="input" name='name' value={user.name} onChange={onChange} required />
-
+        
          <label htmlFor="" className="label mt-4">Email Address</label>
          <input type="email"  className="input" name='email' value={user.email} onChange={onChange}  required/>
 
@@ -59,7 +70,7 @@ function Login() {
           
       
 
-         <button className='mt-4 button is-primary'>
+         <button onClick={onSubmit} className='mt-4 button is-primary'>
              <strong>Submit</strong>
          </button>
 

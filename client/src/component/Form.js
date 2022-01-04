@@ -2,13 +2,13 @@ import React from 'react'
 import Login from './Login'
 import Register from './Register'
 
-function Form() {
+function Form({setIsLogged}) {
     return (
         <div className="section">
 
             <div className="columns">
                 <div className="column">
-                    <Login />
+                    <Login setIsLogged={setIsLogged} />
                 </div>
                 <div className="column">
                     <Register />

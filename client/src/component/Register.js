@@ -1,10 +1,11 @@
 import {Link} from '@reach/router'
 import {useState} from 'react'
+import axios from 'axios'
 
 function Register() {
 
     const [user , setUser] = useState({
-
+        username:'',
         email:'',
         password:'',
     })
@@ -22,6 +23,15 @@ function Register() {
             }
         })
 
+    }
+
+    async function onSubmit(){
+        try {
+            const res = await axios.post('/user/register' , user)
+            setUser(null)
+        } catch (error) {
+            error.response.data.error && setError(error.response.data.error)
+        }
     }
 
 
@@ -44,6 +54,10 @@ function Register() {
 
 
             <h1 className="title is-size-1 has-text-weight-bold has-text-centered">Register</h1>
+
+            <label htmlFor="" className="label">User Name</label>
+         <input type="text"  className="input" name='username' value={user.username} onChange={onChange} required />
+
        
          
 
@@ -56,7 +70,7 @@ function Register() {
           
           
 
-         <button className='mt-4 button is-primary'>
+         <button className='mt-4 button is-primary' onClick={onSubmit}>
              <strong>Submit</strong>
          </button>
 
