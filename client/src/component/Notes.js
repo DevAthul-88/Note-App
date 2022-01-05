@@ -5,12 +5,12 @@ import CreateNote from "./Note/CreateNote";
 import EditNote from "./Note/EditNote";
 import { Router } from "@reach/router";
 
-function Notes() {
+function Notes({setIsLogged}) {
   return (
   
   
       <div> 
-             <Navbar />
+             <Navbar setIsLogged={setIsLogged} />
        
        <div className="section">
           

@@ -34,7 +34,7 @@ function App() {
     <div className="App">
 
       {
-          isLogin ? <Notes /> : <From setIsLogged={setLogin} />
+          isLogin ? <Notes setIsLogged={setLogin} /> : <From setIsLogged={setLogin} />
       }
 
 
