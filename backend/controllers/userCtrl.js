@@ -43,7 +43,7 @@ const userCtrl = {
           
             const payload = {id:user._id , name:user.username}
 
-            const token = jwt.sign(payload , process.env.ACCESS_TOKEN , {expiresIn:"1d" })
+            const token = jwt.sign(payload , process.env.ACCESS_TOKEN , {expiresIn:"15m" })
 
             res.json({token:token})
 
@@ -58,7 +58,7 @@ const userCtrl = {
                   
             const token = req.header('Authorization')
 
-            if(!token) return res.status(400).send({error:'Authorized'})
+            if(!token) return res.status(400).send({error:'UnAuthorized'})
 
             jwt.verify(token , process.env.ACCESS_TOKEN , async (err , verified) => {
                 if(err) return res.status(500).send(false);
