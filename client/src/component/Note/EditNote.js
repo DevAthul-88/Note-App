@@ -42,7 +42,8 @@ function EditNote() {
                setNote({
                 title:res.data.title,
                 description:res.data.description,
-                date:res.data.date
+                date:new Date().toLocaleDateString(),
+                id:res.data._id,
                })
 
               }
@@ -50,7 +51,7 @@ function EditNote() {
 
          getNote()
 
-    },[])
+    },[params.id])
 
 
    async function onSubmit(e){
@@ -63,7 +64,7 @@ function EditNote() {
 
            const newNote = {title , description , date}
  
-           await axios.put('/note' , newNote , {
+           await axios.put(`/note/${params.id}` , newNote , {
                 headers: { Authorization: token }
            })
 
