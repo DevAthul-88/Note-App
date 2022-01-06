@@ -46,7 +46,7 @@ function Home() {
   }
 
   return (
-    <div className="columns">
+    <div >
       {loading ? (
         <h1 className="title is-size-1 has-text-centered">Loading....</h1>
       ) : (
@@ -54,7 +54,7 @@ function Home() {
           {notes.length === 0 ? (
             <h1>No notes found!</h1>
           ) : (
-            <div>
+            <div className="columns is-flex-wrap-wrap">
               {notes.map((e, index) => {
                 return(
                   <div className="column" key={index}>
