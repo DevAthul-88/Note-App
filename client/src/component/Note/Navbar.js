@@ -27,13 +27,13 @@ function Navbar({setIsLogged}) {
             <div className="navbar-end">
                 <div className="navbar-item">
                  <Link to='create-note'>
-                 Create Note
+                 CREATE NOTE
                  </Link>
                 </div>
 
                 <div className="navbar-item" onClick={logOut}>
                  <a>
-                   LogOut
+                   LOGOUT
                  </a>
                 </div>
             </div>

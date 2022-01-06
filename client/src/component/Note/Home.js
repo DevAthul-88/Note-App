@@ -77,9 +77,9 @@ function Home() {
                       <a  className="card-footer-item" onClick={() => deleteNote(e._id)}>
                         Delete
                       </a>
-                      <a  className="card-footer-item">
-                        Edit
-                      </a>
+                      <Link  to={`edit/${e._id}`} className="card-footer-item">
+                       Edit
+                      </Link>
                     </footer>
                   </div>
                 </div>
