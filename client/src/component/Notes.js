@@ -20,7 +20,7 @@ function Notes({setIsLogged}) {
         <Router>
         <Home path='/' />
           <CreateNote path='/create-note' />
-           <EditNote path='/edit-note/:id' />
+           <EditNote path='/edit/:id' />
         </Router>
 
         </div>
